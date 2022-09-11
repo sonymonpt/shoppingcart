@@ -30,7 +30,7 @@ public class Products {
 
                     SpecialPrice specialPrice = SpecialPrice.builder()
                             .quantity(splPriceCont[n])
-                            .price(Money.of(splPriceCont[n], "GBP"))
+                            .price(Money.of(splPrice[n], "GBP"))
                             .build();
                     Item item = Item.builder()
                             .name(productNames[n])

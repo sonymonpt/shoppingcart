@@ -13,11 +13,13 @@ class RemoveItemActionTest {
     PerformAction removeItemAction;
 
     Inventory inventory;
+
     @BeforeEach
     void setUp() {
         removeItemAction = new RemoveItemAction();
         setupInventory();
     }
+
     @Test
     void verifyNoDiscountperformWhenAddItemAction() {
         inventory.setQuantity(3);

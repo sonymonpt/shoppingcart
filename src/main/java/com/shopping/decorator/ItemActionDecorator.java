@@ -5,6 +5,8 @@ import com.shopping.models.Item;
 import com.shopping.models.SpecialPrice;
 import com.shopping.services.PerformAction;
 
+import javax.money.MonetaryAmount;
+
 public class ItemActionDecorator implements PerformAction {
 
     PerformAction performAction;
@@ -27,11 +29,14 @@ public class ItemActionDecorator implements PerformAction {
         if (null == item.getSpecialPrice())
             return inventory;
         SpecialPrice specialPrice = item.getSpecialPrice();
+        if (specialPrice.getQuantity() < 1)
+            return inventory;
+
         Integer discountedItemCount = inventory.getQuantity() / specialPrice.getQuantity();
         Integer otherItemCount = inventory.getQuantity() % specialPrice.getQuantity();
-        inventory.setDiscountPrice(specialPrice.getPrice().multiply(discountedItemCount)
-                .add(item.getPrice().multiply(otherItemCount)));
-
+        MonetaryAmount monetaryAmount = specialPrice.getPrice().multiply(discountedItemCount);
+        MonetaryAmount monetaryAmount1 = item.getPrice().multiply(otherItemCount);
+        inventory.setDiscountPrice(monetaryAmount.add(monetaryAmount1));
         return inventory;
     }
 }

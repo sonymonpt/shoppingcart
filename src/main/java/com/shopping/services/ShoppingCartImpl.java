@@ -16,7 +16,7 @@ public class ShoppingCartImpl implements ShoppingCart {
     private ItemFactory itemFactory;
     private PerformAction itemActionDecorator;
 
-    void ShoppingCartImpl() {
+    public ShoppingCartImpl() {
         this.cart = new HashMap<>();
         this.itemFactory = new ItemFactoryImpl();
     }
@@ -32,7 +32,7 @@ public class ShoppingCartImpl implements ShoppingCart {
         }
         PerformAction addItemAction = new AddItemAction();
         itemActionDecorator = new ItemActionDecorator(addItemAction);
-        itemActionDecorator.perform(inventory);
+        cart.putIfAbsent(name, itemActionDecorator.perform(inventory));
     }
 
     @Override

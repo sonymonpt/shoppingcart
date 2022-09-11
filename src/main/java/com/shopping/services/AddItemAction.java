@@ -14,6 +14,7 @@ public class AddItemAction implements PerformAction {
         Item item = inventory.getItem();
         inventory.setQuantity(inventory.getQuantity() + 1);
         inventory.setTotalItemPrice(item.getPrice().multiply(inventory.getQuantity()));
+        inventory.setDiscountPrice(item.getPrice().multiply(inventory.getQuantity()));
         return inventory;
     }
 }
