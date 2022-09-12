@@ -21,9 +21,9 @@ public class Products {
 
     public void initStoreItems() {
         String[] productNames = {"A", "B", "C", "D"};
-        Double[] productPrice = {50.00d, 30.00d, 20.00d, 15.00d};
+        Double[] productPrice = {.50d, .30d, .20d, .15d};
         Integer[] splPriceCont = {3, 2, 0, 0};
-        Double[] splPrice = {130.00d, 40.00d, 0.00d, 0.00d};
+        Double[] splPrice = {1.30d, .40d, 0.0d, 0.0d};
 
         IntStream.range(0, 4).forEach(
                 n -> {

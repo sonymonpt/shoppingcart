@@ -2,7 +2,6 @@ package com.shopping.services;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -11,7 +10,6 @@ class ShoppingCartImplTest {
 
     Products products;
 
-    @Mock
     ShoppingCart shoppingCart;
 
     @BeforeEach
